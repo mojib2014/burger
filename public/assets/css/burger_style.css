@@ -1,0 +1,70 @@
+body{
+  background-color: #40b8b0;
+  font-family: "serif";
+  color: #141414;
+}
+
+.jumbotron {
+  color: black;
+  margin-top: 20px;
+  opacity: .75;
+  background-color: rgb(141, 227, 21);
+  margin-bottom: 20px;
+}
+
+.jumbotron h1 {
+font-size: 36px;
+}
+
+.heading {
+font-size: 20px;
+font-weight: bold;
+color: rgb(126, 10, 10);
+display:block;
+margin: 0 auto;
+}
+
+li {
+list-style-type: none;
+}
+
+.burgerType {
+font-size: 18px;
+}
+
+.btnDevour {
+  background: rgb(35, 255, 27);
+  color: black;
+  padding: 5px;
+  border: 1px solid rgb(14, 132, 228);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+#btnCreate {
+display: block;
+margin: 0 auto;
+background: rgb(23, 148, 90);
+color: black;
+padding: 5px;
+border: 1px solid rgb(228, 41, 56);
+border-radius: 5px;
+margin-bottom: 10px;
+}
+
+#btnDelete {
+display: block;
+margin: 0 auto;
+}
+
+ul,li {
+list-style-type: none;
+list-style-position: inside;
+margin: 0;
+padding: 0;
+}
+
+.rightBurgers {
+float: right;
+}
