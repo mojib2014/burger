@@ -3,20 +3,20 @@ Make the connection to the database and export to be used by the O.R.M.
 */
 var mysql = require('mysql');
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "",
-  database: "burger_db"
-});
+var connection;
 
-connection.connect(function(err){
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
 
-  console.log("connected as id " + connection.threadId);
-})
+} else {
+  connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "burger_db"
+  });
+};
+
+connection.connect();
+
 module.exports = connection;
