@@ -1,70 +1,127 @@
-body{
-  background-color: #40b8b0;
-  font-family: "serif";
-  color: #141414;
-}
 
-.jumbotron {
-  color: black;
-  margin-top: 20px;
-  opacity: .75;
-  background-color: rgb(141, 227, 21);
-  margin-bottom: 20px;
-}
-
-.jumbotron h1 {
-font-size: 36px;
-}
-
-.heading {
-font-size: 20px;
-font-weight: bold;
-color: rgb(126, 10, 10);
-display:block;
-margin: 0 auto;
+.container {
+	width: 60%;
+	margin: 0 auto;
 }
 
 li {
-list-style-type: none;
+  padding: 15px;
+  margin: 15px;
+  background: #70da2f;
+	list-style: none;
 }
 
-.burgerType {
-font-size: 18px;
+ul {
+	list-style: none;
 }
 
-.btnDevour {
-  background: rgb(35, 255, 27);
-  color: black;
-  padding: 5px;
-  border: 1px solid rgb(14, 132, 228);
-  border-radius: 5px;
-  margin-bottom: 10px;
-  display: inline-block;
+.label {
+  font-weight: bold;
 }
 
-#btnCreate {
-display: block;
-margin: 0 auto;
-background: rgb(23, 148, 90);
-color: black;
-padding: 5px;
-border: 1px solid rgb(228, 41, 56);
-border-radius: 5px;
-margin-bottom: 10px;
+.center {
+	text-align: center;
 }
 
-#btnDelete {
-display: block;
-margin: 0 auto;
+.right {
+	align-content: right;
 }
 
-ul,li {
-list-style-type: none;
-list-style-position: inside;
-margin: 0;
-padding: 0;
+img {
+	align-content: center;
 }
 
-.rightBurgers {
-float: right;
+h1 {
+	text-align: center;
+	text-shadow: 2px 2px #078515;
+	color: rgb(240, 240, 240);
+}
+
+h2 {
+	text-align: center;
+	text-shadow: 2px 2px #bd095d;
+	color: rgb(240, 240, 240);
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.create-update-form {
+  padding: 25px;
+	margin: 25px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.btn-primary {
+	border-radius: 15px;
+}
+
+html, body{
+	height: 100%;
+}
+body { 
+	background-image: url(/assets/img/burger2.png) ;
+	background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  cover;
+	background-color: #000000; 
+}
+
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: exo, sans-serif;
+	color: black;
+}
+
+.readyToEate {
+	margin-bottom: 44px;
+}
+
+.eaten {
+	margin-top: 22px;
+}
+
+.btnEaten {
+	margin-top: 2px;
+}
+
+.footer {
+	text-align: center;
+	text-shadow: 1px 1px #0aa512;
+	background: rgb(34, 34, 34);
+	padding: 10px;
+	font-size: 16px;
+}
+
+footer p {
+	color: white;
+}
+.wrapper {
+	height: 100%; 
+	width: 100%; 
+	}
+
+.message {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%; 
+  height:45%;
+  bottom: 0; 
+  display: block;
+  position: absolute;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 0.5em;
+}
+
+input {
+	width: 600px;
+	height: 50px;
+	background: rgb(203, 189, 189);
 }

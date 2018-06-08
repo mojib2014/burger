@@ -1,54 +1,76 @@
+<div class="container bg">
+	
+	
+	<!-- end .row -->
+<div class="row">
+	    <div class="center col-sm-12">
 
-    <div class="container">
+			<h2>Add A Burger!</h2>
 
-        {{!-- <div class="jumbotron text-center">
+			<form class="create-update-form" action="/" method="POST">
 
-            <h1>Build A Burger</h1>
-            <img  src="../assets/img/burger2.png" alt="burger icon" height="100" width="100"/>
-            <img  src="../assets/img/burger.png" alt="burger icon" height="100" width="100"/>
-            <img  src="../assets/img/burger3.png" alt="burger icon" height="100" width="100"/>
-            <img  src="../assets/img/burger7.png" alt="burger icon" height="100" width="100"/>
-            <img  src="../assets/img/burger4.png" alt="burger icon" height="100" width="100"/>
-            <img  src="../assets/img/burger5.png" alt="burger icon" height="100" width="100"/>
-            <img  src="../assets/img/burger6.png" alt="burger icon" height="100" width="100"/>
-        </div> --}}
+			  <div class="form-group">
+			    <input type="text" id="ca" name="burger_name" placeholder="Please order your burger here">
+			  </div>
+			  
+			  <button class="btn-primary" type="submit">Submit Order</button>
+			</form>
 
-        <div class="row">
+	    </div>
+	
+  	</div>
+		<div class="row">
+	    <div class="center col-sm-12">
+			{{!-- <img src="assets/img/burger1.png" alt="Eat-Da-Burger App"> --}}
+	        <h1>Eat-Da-Burger App</h1>
+	        <p></p>
+	    </div>
+  	</div>
+	<div class="row">
+	    <div class="col-sm-6">
 
-            <div class="col-md-12 ">
-                <div class="col-md-4">
-                    <div class="leftBurgers">
-                        <h2 class="heading">Designer Burgers</h2>
-                        <ul>
-                          {{#each burgers}}
-                            {{#unless this.devoured}}
-                              <li>
-                                <p class="burgerType">{{this.burger_name}}</p>
-                                <form action="api/burgers/:id"{{this.id}}?_method=PUT" method="POST">
-                                  <input type="hidden" name="devoured" value="true">
-                                  <button class="btnDevour" type="submit">Devour it</button>
-                                </form>
-                              </li>
-                            {{/unless}}
-                          {{/each}}
-                        </ul>
-                    </div>
-                </div>
+			<br>
+			<h2 class="readyToEate">Burgers Available To Eat!</h2>
 
-                <div class="col-md-4 text-center">
-                    <div class="input">
+			<ul>
+			  {{#each burgers}}
+			    {{#unless this.devoured}}
+			      <li>
+			      	{{this.id}}
+			        {{this.burger_name}}
 
+			        <form action="/{{this.id}}?_method=PUT" method="POST">
+			          <input type="hidden" name="devoured" value="true">
+			          <button class="btn-primary" type="submit">Devour It!</button>
+			        </form>
 
-                        <h2  class="heading" id="add">Create A Burger</h2>
-                        <div class="form-group">
-                            <form method="POST" action="api/burgers" class="addOne text-center">
-                                <textarea id="textArea" type="text" name="burger_name" rows="2" cols="40"></textarea>
-                                <button id="btnCreate"  type="submit" >Create Your Burger!</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+			      </li>
+			    {{/unless}}
+			  {{/each}}
+			</ul>
 
-    </div>
+	    </div>
+
+	    <div class="col-sm-6 eaten">
+
+			<h2>Burgers That Have Been Eaten!</h2>
+			
+			  {{#each burgers}}
+			    {{#if this.devoured}}
+			      <li class="btnEaten">
+			      	{{this.id}}
+			        {{this.burger_name}}
+
+			      </li>
+			    {{/if}}
+			  {{/each}}
+			
+	    </div>
+
+  	</div>
+	<!-- end .row -->
+
+	
+	<!-- end .row -->
+
+</div>

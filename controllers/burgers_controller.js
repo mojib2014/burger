@@ -1,52 +1,49 @@
-/*
-create all the functions that do the routing for the app, and the logic of each route.
-*/
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-// Import the model (burger.js) file to use its database functions.
-var burger = require('../models/burger.js');
+// Import the model (burger.js) to use its database functions.
+var burger = require("../models/burger.js");
 
-router.get("/", function (req, res) {
-
-  burger.selectAll(function (data) {
-    var hbsObject = { 
-      burgers: data 
+// Create all our routes and set up logic within those routes where required.
+router.get("/", function(req, res) {
+  burger.all(function(data) {
+    var hbsObject = {
+      burgers: data
     };
     console.log(hbsObject);
-    res.render('index', hbsObject);
+    res.render("index", hbsObject);
   });
 });
 
-router.post("/api/burgers", function (req, res) {
-  burger.insertOne([
-    "burger_name", 'devoured'
+router.post("/", function(req, res) {
+  burger.create([
+    "burger_name", "devoured"
   ], [
-    req.body.burger_name
-  ], function (result) {
-
-    console.log("in callback");
-    res.json({ id: result.insertId });
-  });
-  console.log("after insert");
-});
-
-router.put('/api/burgers/:id', function (req, res) {
-  var condition = 'id = ' + req.params.id;
-
-   console.log("condition", condition);
-
-  burger.updateOne({ 
-    devoured: req.body.devoured 
-  },condition, function (result) {
-    if (result.changeRows === 0) {
-      // If no rows were changed, then the ID must not exist, so 404.
-      res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
+    req.body.burger_name, req.body.devoured
+  ], function() {
+    res.redirect("/");
   });
 });
 
+router.put("/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
 
+  console.log("condition", condition);
+
+  burger.update({
+    devoured: req.body.devoured
+  }, condition, function() {
+    res.redirect("/");
+  });
+});
+
+router.delete("/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  burger.delete(condition, function() {
+    res.redirect("/");
+  });
+});
+
+// Export routes for server.js to use.
 module.exports = router;
